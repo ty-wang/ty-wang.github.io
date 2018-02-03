@@ -1,0 +1,48 @@
+# jemdoc: menu{MENU}{index.html}, addcss{jemdoc.css}, notime
+= Home
+
+~~~
+{}{img_left}{photo.jpg}{photo}{240px}{240px}{}
+== *Tianyu Wang {{<span lang="ch" xml:lang="ch">}}ÕıÃÏ”Ó{{</span>}}*
+Email: {{<a href="mailto:ty-wang@sjtu.edu.cn">ty-wang@sjtu.edu.cn</a>}}\n
+\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp\&nbsp{{<a href="mailto:tywang96@hotmail.com">tywang96@hotmail.com</a>}}\n
+\n
+\[[CV_Tianyu_Wang.pdf {{<font color="blue">Curriculum Vitae</font>}}]\]\n
+\n
+[http://umji.sjtu.edu.cn/ University of Michigan--Shanghai Jiao Tong University Joint Institute]\n
+\n
+[http://en.sjtu.edu.cn/ Shanghai Jiao Tong University]\n
+\n
+Address: 800 Dong Chuan Road, Shanghai, China
+
+~~~
+
+== About me
+I am currently an undergraduate student in University of Michigan--Shanghai Jiao Tong University Joint Institute at Shanghai Jiao Tong University.\n
+\n
+I am a robotics zealot. My research interests lie in designing, realizing, and controlling of robots. Currently my research is focused on soft robotics.\n
+\n
+Robotics is a multidisciplinary research area. My background is also diversified. My major is control and my research is more on mechatronics and physical robots. I am always eager to learn more to explore the fantastic world of robotics!\n
+\n
+/I believe the future is limitless. I am always ready to embrace the challenge with my determination./ \n
+
+== Education
+- B.S., Electrical Engineering, UM-SJTU Joint Institute, Shanghai Jiao Tong University, 2014-present \n
+-- Course track: Control, Communication and Robotics
+-- GPA: 3.69\/4.0 \&nbsp\&nbsp Rank: 9\/107
+
+== Experience
+- Research Assistant, [http://www.robot.sjtu.edu.cn/ Robotics Institute], [http://me.sjtu.edu.cn/ School of Mechanical Engineering], Shanghai Jiao Tong University, 2016-present \n
+-- Soft pneumatic actuator
+-- Robotic gripper and robotic hand
+-- Bottom-up DLP 3D printer for smart materials
+-- Hysteresis nonlinearity of piezoelectric actuator
+
+- Teaching Assistant, UM-SJTU Joint Institute, Shanghai Jiao Tong University, 2017 \n
+-- Course: Ve216 Signal and System \&nbsp\&nbsp Professor: Mohamed Atef
+
+- Research Assistant, [http://robotics.sjtu.edu.cn Autonomous Robot Lab], [http://english.seiee.sjtu.edu.cn/ Institute of Automation], Shanghai Jiao Tong University, 2015-2016 \n
+-- Rotational visual recognition system
+
+
+
