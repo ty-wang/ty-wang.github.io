@@ -9,7 +9,7 @@
   <style>
   #bib {
     width: 50%;
-    padding: 5px 0;
+    padding: 0px 0;
     text-align: left;
     background-color: white;
     margin-top: 0px;
@@ -125,7 +125,7 @@
               <a href="data/wang2018programmable.pdf">pdf</a> /
               <a href="https://youtu.be/XoyYGWjMKUA">video 1</a> /
               <a href="https://youtu.be/h9qG1-eZlEU">video 2</a> /
-              <a href="" onclick="clickFunction()">bibtex</a>
+              <a href="javascript:;" onclick="clickFunction()">bibtex</a>
               <div id="bib">
               <br>@article{wang2018programmable, 
               <br>title={Programmable design of soft pneu-net actuators with oblique chambers can generate coupled bending and twisting motions}, 
@@ -200,10 +200,10 @@
 <script>
 function clickFunction() {
   var x = document.getElementById("bib");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
+  if (x.style.display === "block") {
     x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
 }
 </script>
