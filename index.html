@@ -6,6 +6,15 @@
   
   <meta name="author" content="Tianyu Wang">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  #bib {
+    width: 50%;
+    padding: 10px 0;
+    text-align: left;
+    background-color: white;
+    margin-top: 20px;
+  }
+  </style>
   
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/seal.png">
@@ -115,7 +124,19 @@
               <a href="data/wang2018programmable.pdf">pdf</a> /
               <a href="https://youtu.be/XoyYGWjMKUA">video 1</a> /
               <a href="https://youtu.be/h9qG1-eZlEU">video 2</a> /
-              <a href="data/wang2018programmable.bib">bibtex</a>
+              <a onclick="clickFunction()">bibtex</a>
+              <div id="bib">
+              <br>@article{wang2018programmable, 
+              <br>title={Programmable design of soft pneu-net actuators with oblique chambers can generate coupled bending and twisting motions}, 
+              <br>author={Wang, Tianyu and Ge, Lisen and Gu, Guoying}, 
+              <br>journal={Sensors and Actuators A: Physical}, 
+              <br>volume={271}, 
+              <br>pages={131--138}, 
+              <br>year={2018}, 
+              <br>publisher={Elsevier} 
+              <br>}
+              </div>
+
               <p></p>
               <p style="text-align:justify">Soft pneumatic network (pneu-net) actuators are widely employed for achieving sophisticated motions. However, to produce bending and twisting simultaneously in a single pneu-net actuator is challenging. In this paper we present a programmable design to enable pneu-net actuators to achieve such complex motions. This achievement is mainly owing to tuning a structure parameter, the chamber angle. Through finite element analysis and experimental verification, variation trends of bending and twisting motions with respect to the chamber angle are investigated. Additionally, deformation characteristics of actuators are demonstrated by depicting configurations of actuators and some grasping tests. By adjusting the chamber angle, the motion of pneu-net actuators is explored into 3D space and becomes more sophisticated and dexterous. This programmable design method guides the design of pneu-net actuators, making them promising candidates for more complicated and advanced applications.</p>
             </td>
@@ -174,6 +195,18 @@
       </td>
     </tr>
   </table>
+
+<script>
+function clickFunction() {
+  var x = document.getElementById("bib");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
 </body>
 
 </html>
