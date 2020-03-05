@@ -113,10 +113,10 @@
               <br>
               (<strong>To appear</strong>) <em>American Control Conference (ACC)</em>, 2020 &nbsp <font color="red"><strong>(Oral Presentation)</strong></font>
               <br>
-              <a href="https://arxiv.org/abs/2003.01774" target="_blank">arxiv</a>/
-              <a href="data/wang2018directional.pdf" target="_blank">pdf</a>/
-              <a href="https://youtu.be/4Fv5qU1Buxw" target="_blank">video</a>/
-              <a href="javascript:void(0);" onclick="clickFunction()">bibtex</a>
+              <a href="https://arxiv.org/abs/2003.01774" target="_blank">arxiv</a> /
+              <a href="data/wang2018directional.pdf" target="_blank">pdf</a> /
+              <a href="https://youtu.be/4Fv5qU1Buxw" target="_blank">video</a> /
+              <a href="javascript:void(0);" onclick="click_directional()">bibtex</a>
               <div id="bib">
               @inproceedings{wang2020directional, 
               <br>title={Directional compliance in obstacle-aided navigation for snake robots}, 
@@ -162,7 +162,7 @@
               <a href="data/wang2018programmable.pdf" target="_blank">pdf</a> /
               <a href="https://youtu.be/XoyYGWjMKUA" target="_blank">video 1</a> /
               <a href="https://youtu.be/h9qG1-eZlEU" target="_blank">video 2</a> /
-              <a href="javascript:void(0);" onclick="clickFunction()">bibtex</a>
+              <a href="javascript:void(0);" onclick="click_programmable()">bibtex</a>
               <div id="bib">
               @article{wang2018programmable, 
               <br>title={Programmable design of soft pneu-net actuators with oblique chambers can generate coupled bending and twisting motions}, 
@@ -275,7 +275,17 @@
   </table>
 
 <script>
-function clickFunction() {
+function click_directional() {
+  var x = document.getElementById("bib");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function click_programmable() {
   var x = document.getElementById("bib");
   if (x.style.display === "block") {
     x.style.display = "none";
