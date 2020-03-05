@@ -116,8 +116,8 @@
               <a href="https://arxiv.org/abs/2003.01774" target="_blank">arxiv</a> /
               <a href="data/wang2018directional.pdf" target="_blank">pdf</a> /
               <a href="https://youtu.be/4Fv5qU1Buxw" target="_blank">video</a> /
-              <a href="javascript:void(0);" onclick="click_directional()">bibtex</a>
-              <div id="bib">
+              <a href="javascript:void(0);" onclick="click_function(directional)">bibtex</a>
+              <div id="bib_directional">
               @inproceedings{wang2020directional, 
               <br>title={Directional compliance in obstacle-aided navigation for snake robots}, 
               <br>author={Wang, Tianyu and Whitman, Julian and Travers, Matthew and Choset, Howie}, 
@@ -162,8 +162,8 @@
               <a href="data/wang2018programmable.pdf" target="_blank">pdf</a> /
               <a href="https://youtu.be/XoyYGWjMKUA" target="_blank">video 1</a> /
               <a href="https://youtu.be/h9qG1-eZlEU" target="_blank">video 2</a> /
-              <a href="javascript:void(0);" onclick="click_programmable()">bibtex</a>
-              <div id="bib">
+              <a href="javascript:void(0);" onclick="click_function(programmable)">bibtex</a>
+              <div id="bib_programmable">
               @article{wang2018programmable, 
               <br>title={Programmable design of soft pneu-net actuators with oblique chambers can generate coupled bending and twisting motions}, 
               <br>author={Wang, Tianyu and Ge, Lisen and Gu, Guoying}, 
@@ -276,7 +276,7 @@
 
 <script>
 function click_directional() {
-  var x = document.getElementById("bib");
+  var x = document.getElementById("bib_directional");
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
@@ -286,7 +286,18 @@ function click_directional() {
 </script>
 <script>
 function click_programmable() {
-  var x = document.getElementById("bib");
+  var x = document.getElementById("bib_programmable");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+<script>
+function click_function(id) {
+  if (id === "programmable"){var x = document.getElementById("bib_programmable");}
+  else if (id === "directional"){var x = document.getElementById("bib_directional");}
   if (x.style.display === "block") {
     x.style.display = "none";
   } else {
