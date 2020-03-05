@@ -117,8 +117,7 @@
               <a href="data/wang2018directional.pdf" target="_blank">pdf</a> /
               <a href="https://youtu.be/4Fv5qU1Buxw" target="_blank">video</a> /
               <a href="javascript:void(0);" onclick="click_directional()">bibtex</a>
-              <span id = "nothing_directional"></span>
-              <div id="bib_directional">
+              <div id="bib">
               @inproceedings{wang2020directional, 
               <br>title={Directional compliance in obstacle-aided navigation for snake robots}, 
               <br>author={Wang, Tianyu and Whitman, Julian and Travers, Matthew and Choset, Howie}, 
@@ -164,8 +163,7 @@
               <a href="https://youtu.be/XoyYGWjMKUA" target="_blank">video 1</a> /
               <a href="https://youtu.be/h9qG1-eZlEU" target="_blank">video 2</a> /
               <a href="javascript:void(0);" onclick="click_programmable()">bibtex</a>
-              <span id = "nothing_programmable"></span>
-              <div id="bib_programmable">
+              <div id="bib">
               @article{wang2018programmable, 
               <br>title={Programmable design of soft pneu-net actuators with oblique chambers can generate coupled bending and twisting motions}, 
               <br>author={Wang, Tianyu and Ge, Lisen and Gu, Guoying}, 
@@ -278,23 +276,20 @@
 
 <script>
 function click_directional() {
-  var x = document.getElementById("bib_directional");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
+  var x = document.getElementById("bib");
+  if (x.style.display === "block") {
     x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
 }
 </script>
 <script>
 function click_programmable() {
-  var n = document.getElementById("nothing_programmable");
-  var x = document.getElementById("bib_programmable");
-  if (n.style.display === "none") {
-    n.style.display = "inline";
+  var x = document.getElementById("bib");
+  if (x.style.display === "block") {
     x.style.display = "none";
   } else {
-    n.style.display = "none";
     x.style.display = "block";
   }
 }
