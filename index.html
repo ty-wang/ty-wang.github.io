@@ -15,7 +15,25 @@
     font-size: 10pt;
   }
   </style>
-  
+  <style>
+    .expandable-text {
+      display: none;
+      background-color: #f2f2f2;
+    }
+
+    .expand-button {
+      background: none;
+      border: none;
+      color: #1772d0;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: inherit;
+      padding: 0;
+      margin: 0;
+      font-family: inherit;
+      display: inline-block;
+    }
+  </style>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="icon" type="image/png" href="images/gt-logo-black.png">
 </head>
@@ -31,7 +49,7 @@
                 <name>Tianyu Wang</name>
               </p>
               <p>
-                I am a PhD student in Robotics at <a href="https://research.gatech.edu/robotics" target="_blank">Institute for Robotics and Intelligent Machines </a>, <a href="https://www.gatech.edu/" target="_blank">Georgia Tech (GT)</a>, advised by Prof. <a href="https://physics.gatech.edu/user/daniel-goldman" target="_blank">Daniel Goldman</a>. I am a member of <a href="https://crablab.gatech.edu/" target="_blank">Complex Rheology And Biomechanics (CRAB) Lab</a>, my current research focuses on biologically inspired limbless and legged robot locomotion in complex environments. My research interests include bio-inspired robots and their robophysical model developing, locomotion principle and mechanics modeling, and geometric and dynamic motion planning and control. 
+                I am a PhD student in Robotics at <a href="https://research.gatech.edu/robotics" target="_blank">Institute for Robotics and Intelligent Machines </a>, <a href="https://www.gatech.edu/" target="_blank">Georgia Tech (GT)</a>, advised by Prof. <a href="https://physics.gatech.edu/user/daniel-goldman" target="_blank">Daniel I. Goldman</a>. I am a member of <a href="https://crablab.gatech.edu/" target="_blank">Complex Rheology And Biomechanics (CRAB) Lab</a>, my current research focuses on biologically inspired limbless and legged robot locomotion in complex environments. My research interests include bio-inspired robots and their robophysical model developing, locomotion principle and mechanics modeling, and geometric and dynamic motion planning and control. 
               </p>
               <p>
                 Prior to this, I received my Master degree in Mechanical Engineering from <a href="https://www.cmu.edu/" target="_blank">Carnegie Mellon University (CMU)</a>, advised by Prof. <a href="http://www.cs.cmu.edu/~choset/" target="_blank">Howie Choset</a>. I was a member of <a href="http://biorobotics.ri.cmu.edu/index.php" target="_blank">Biorobotics Lab</a>, working on motion planning and compliant control for snake robot locomotion.
@@ -77,6 +95,39 @@
           
           <tr>
             <td style="padding:20px;width:20%;vertical-align:middle">
+              <img src="images/chong2023slipping.png" alt="project image" style="width:auto; height:auto; max-width:100%;" />
+            </td>
+          <td style="padding:20px;width:80%;vertical-align:middle">
+              <a href="https://www.pnas.org/doi/10.1073/pnas.2213698120" target="_blank">
+                <papertitle>Self-propulsion via slipping: Frictional swimming in multilegged locomotors</papertitle>
+              </a>
+              <br>
+              Baxi Chong, Juntao He, Shengkai Li, Eva Erickson, Kelimar Diaz, <strong>Tianyu Wang</strong>, Daniel Soto, Daniel I. Goldman
+              <br>
+              <em>Proceedings of the National Academy of Sciences (PNAS)</em>, 2023
+              <br>
+              <a href="data/chong2023slipping.pdf" target="_blank">pdf</a> /
+              <button class="expand-button" onclick="toggleText('expandable-text-14')">bibtex</button>
+              <div id="expandable-text-14" class="expandable-text">
+                <p>@article{chong2023self,
+                <br>&nbsp;&nbsp;title={Self-propulsion via slipping: Frictional swimming in multilegged locomotors},
+                <br>&nbsp;&nbsp;author={Chong, Baxi and He, Juntao and Li, Shengkai and Erickson, Eva and Diaz, Kelimar and Wang, Tianyu and Soto, Daniel and Goldman, Daniel I},
+                <br>&nbsp;&nbsp;journal={Proceedings of the National Academy of Sciences},
+                <br>&nbsp;&nbsp;volume={120},
+                <br>&nbsp;&nbsp;number={11},
+                <br>&nbsp;&nbsp;pages={e2213698120},
+                <br>&nbsp;&nbsp;year={2023},
+                <br>&nbsp;&nbsp;publisher={National Acad Sciences}
+              <br>&nbsp;&nbsp;
+              <br>}</p>
+              </div>
+              <p></p>
+              <p style="text-align:justify">This work shows that undulatory locomotion with leg retraction/protraction can be recast as a fluid-like problem with the nonlinearities of foot–ground interactions leading to acquired drag anisotropy, facilitating the control of robust robot locomotion in complex terradynamic scenarios and giving insight into neuromechanical control and the evolution of myriapod locomotion.
+            </td>
+          </tr>
+
+          <tr>
+            <td style="padding:20px;width:20%;vertical-align:middle">
               <img src="images/li2022robotic.png" alt="project image" style="width:auto; height:auto; max-width:100%;" />
             </td>
           <td style="padding:20px;width:80%;vertical-align:middle">
@@ -89,9 +140,22 @@
               <em>Proceedings of the National Academy of Sciences (PNAS)</em>, 2022
               <br>
               <a href="data/li2022robotic.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/li2022robotic.html" target="_blank">bibtex</a>
+              <!--<a href="bibtex/li2022robotic.html" target="_blank">bibtex</a>-->
+              <button class="expand-button" onclick="toggleText('expandable-text-13')">bibtex</button>
+              <div id="expandable-text-13" class="expandable-text">
+                <p>@article{li2022robotic,
+                <br>&nbsp;&nbsp;title={Robotic swimming in curved space via geometric phase},
+                <br>&nbsp;&nbsp;author={Li, Shengkai and Wang, Tianyu and Kojouharov, Velin H and McInerney, James and Aydin, Enes and Ozkan-Aydin, Yasemin and Goldman, Daniel I and Rocklin, D Zeb},
+                <br>&nbsp;&nbsp;journal={Proceedings of the National Academy of Sciences},
+                <br>&nbsp;&nbsp;volume={119},
+                <br>&nbsp;&nbsp;number={31},
+                <br>&nbsp;&nbsp;pages={e2200924119},
+                <br>&nbsp;&nbsp;year={2022},
+                <br>&nbsp;&nbsp;publisher={National Acad Sciences}
+                <br>}</p>
+              </div>
               <p></p>
-              <p style="text-align:justify">This work develops a robot to realize the idea that the noncommutativity of translations permits translation without momentum exchange in either gravitationally curved spacetime or the curved surfaces encountered by locomotors in real-world environments.
+              <p style="text-align:justify">This work develops a robot to realize the concept that the noncommutativity of translations permits translation without momentum exchange in either gravitationally curved spacetime or the curved surfaces encountered by locomotors in real-world environments.
             </td>
           </tr>
 
@@ -109,7 +173,19 @@
               <em>Proceedings of the National Academy of Sciences (PNAS)</em>, 2022
               <br>
               <a href="data/chong2022coordinating.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/chong2022coordinating.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-12')">bibtex</button>
+              <div id="expandable-text-12" class="expandable-text">
+                <p>@article{chong2022coordinating,
+                <br>&nbsp;&nbsp;title={Coordinating tiny limbs and long bodies: Geometric mechanics of lizard terrestrial swimming},
+                <br>&nbsp;&nbsp;author={Chong, Baxi and Wang, Tianyu and Erickson, Eva and Bergmann, Philip J and Goldman, Daniel I},
+                <br>&nbsp;&nbsp;journal={Proceedings of the National Academy of Sciences},
+                <br>&nbsp;&nbsp;volume={119},
+                <br>&nbsp;&nbsp;number={27},
+                <br>&nbsp;&nbsp;pages={e2118456119},
+                <br>&nbsp;&nbsp;year={2022},
+                <br>&nbsp;&nbsp;publisher={National Acad Sciences}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">This work uses biological experiments, a geometric theory of locomotion, and robophysical models to investigate body–limb coordination in diverse lizards, valuable in understanding functional constraints on the evolutionary processes of elongation and limb reduction as well as advancing robot designs.
             </td>
@@ -129,7 +205,19 @@
               <em>Bioinspiration & Biomimetics</em>, 2022
               <br>
               <a href="data/chong2022general.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/chong2022general.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-11')">bibtex</button>
+              <div id="expandable-text-11" class="expandable-text">
+                <p>@article{chong2022general,
+                <br>&nbsp;&nbsp;title={A general locomotion control framework for multi-legged locomotors},
+                <br>&nbsp;&nbsp;author={Chong, Baxi and Aydin, Yasemin O and Rieser, Jennifer M and Sartoretti, Guillaume and Wang, Tianyu and Whitman, Julian and Kaba, Abdul and Aydin, Enes and McFarland, Ciera and Cruz, Kelimar Diaz and others},
+                <br>&nbsp;&nbsp;journal={Bioinspiration \& Biomimetics},
+                <br>&nbsp;&nbsp;volume={17},
+                <br>&nbsp;&nbsp;number={4},
+                <br>&nbsp;&nbsp;pages={046015},
+                <br>&nbsp;&nbsp;year={2022},
+                <br>&nbsp;&nbsp;publisher={IOP Publishing}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">This work develops a general framework build shape control schemes which can provide baseline patterns of self-deformation (gaits) for effective locomotion for serially connected multi-legged robots across diverse morphologies. 
             </td>
@@ -150,7 +238,18 @@
               <em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2022
               <br>
               <a href="data/wang2022generalized.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/wang2022generalized.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-10')">bibtex</button>
+              <div id="expandable-text-10" class="expandable-text">
+                <p>@inproceedings{wang2022generalized,
+                <br>&nbsp;&nbsp;title={Generalized Omega Turn Gait Enables Agile Limbless Robot Turning in Complex Environments},
+                <br>&nbsp;&nbsp;author={Wang, Tianyu and Chong, Baxi and Deng, Yuelin and Fu, Ruijie and Choset, Howie and Goldman, Daniel I.},
+                <br>&nbsp;&nbsp;booktitle={2022 International Conference on Robotics and Automation (ICRA)},
+                <br>&nbsp;&nbsp;pages={},
+                <br>&nbsp;&nbsp;year={2022}, 
+                <br>&nbsp;&nbsp;organization={IEEE}
+                <br>&nbsp;&nbsp;doi={10.1109/ICRA46639.2022.9811929}
+                <br>}</p>
+              </div>
               <p></p>
 
               <a href="https://ieeexplore.ieee.org/document/9340872" target="_blank">
@@ -162,7 +261,17 @@
               <em>IEEE International Conference on Intelligent Robots and Systems (IROS)</em>, 2020
               <br>
               <a href="data/wang2020omega.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/wang2020omega.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-9')">bibtex</button>
+              <div id="expandable-text-9" class="expandable-text">
+                <p>@inproceedings{wang2020omega,
+                <br>&nbsp;&nbsp;title={The omega turn: A biologically-inspired turning strategy for elongated limbless robots},
+                <br>&nbsp;&nbsp;author={Wang, Tianyu and Chong, Baxi and Diaz, Kelimar and Whitman, Julian and Lu, Hang and Travers, Matthew and Goldman, Daniel I and Choset, Howie},
+                <br>&nbsp;&nbsp;booktitle={2020 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+                <br>&nbsp;&nbsp;pages={7766--7771},
+                <br>&nbsp;&nbsp;year={2020}, 
+                <br>&nbsp;&nbsp;organization={IEEE}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">Inspired by a behavior observed in the nematode <em>C. elegans</em>, this work proposes a novel in-place turning gait for elongated limbless robots to reorient (turn) effectively within unmodelled and unsensed environments. 
             </td>
@@ -182,7 +291,19 @@
               <em>IEEE Robotics and Automation Letters (RAL)</em>, 2021
               <br>
               <a href="data/wang2021reconstruction.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/wang2021reconstruction.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-8')">bibtex</button>
+              <div id="expandable-text-8" class="expandable-text">
+                <p>@article{wang2021reconstruction,
+                <br>&nbsp;&nbsp;title={Reconstruction of backbone curves for snake robots},
+                <br>&nbsp;&nbsp;author={Wang, Tianyu and Lin, Bo and Chong, Baxi and Whitman, Julian and Travers, Matthew and Goldman, Daniel I and Blekherman, Greg and Choset, Howie},
+                <br>&nbsp;&nbsp;journal={IEEE Robotics and Automation Letters},
+                <br>&nbsp;&nbsp;volume={6},
+                <br>&nbsp;&nbsp;number={2},
+                <br>&nbsp;&nbsp;pages={3264--3270},
+                <br>&nbsp;&nbsp;year={2021},
+                <br>&nbsp;&nbsp;publisher={IEEE}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">This work proposes a method for articulated robots to reconstruct desired 3D backbone curves by posing an optimization problem that exploits the robot’s geometric structure.
             </td>
@@ -203,7 +324,15 @@
               <em>Robotics: Science and Systems (RSS)</em>, 2021 &nbsp &nbsp <font color="red"><b>Best Paper Award Finalist</b></font>
               <br>
               <a href="data/chong2021moving.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/chong2021moving.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-7')">bibtex</button>
+              <div id="expandable-text-7" class="expandable-text">
+                <p>@inproceedings{chong2021moving, 
+                  <br>&nbsp;&nbsp;title={Moving sidewinding forward: optimizing contact patterns for limbless robots via geometric mechanics}, 
+                  <br>&nbsp;&nbsp;author={Chong, Baxi and Wang, Tianyu and Lin, Bo and Li, Shengkai and Choset, Howie and Blekherman, Grigoriy and Goldman, Daniel I.}, 
+                  <br>&nbsp;&nbsp;booktitle={Robotics: Science and Systems},
+                  <br>&nbsp;&nbsp;year={2021}
+                  <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify"> This work develops a framework to design, optimize, and analyze contact patterns for limbless and legged robots to generate effective motion in the desired directions.
               </p>
@@ -224,7 +353,17 @@
               <em>IEEE International Conference on Robotics and Automation (ICRA)</em>, 2021
               <br>
               <a href="data/sartoretti2021autonomous.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/sartoretti2021autonomous.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-6')">bibtex</button>
+              <div id="expandable-text-6" class="expandable-text">
+                <p>@inproceedings{sartoretti2021autonomous, 
+                <br>&nbsp;&nbsp;title={Autonomous Decentralized Shape-Based Navigation for Snake Robots in Dense Environments}, 
+                <br>&nbsp;&nbsp;author={Sartoretti, Guillaume and Wang, Tianyu and Chuang, Gabriel and Li, Qingyang and Choset, Howie}, 
+                <br>&nbsp;&nbsp;booktitle={2021 IEEE International Conference on Robotics and Automation (ICRA)},
+                <br>&nbsp;&nbsp;pages={9276--9282},
+                <br>&nbsp;&nbsp;year={2021},
+                <br>&nbsp;&nbsp;organization={IEEE}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">This work develops a bi-stable dynamical system that relies on inertial feedback to continuously steer a snake robot toward a desired direction, and an onboard vision system that allows the robot to autonomously select its own direction of travel.
             </td>
@@ -246,7 +385,19 @@
               <em>The International Journal of Robotics Research (IJRR)</em>, 2021
               <br>
               <a href="data/chong2021frequency.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/chong2021frequency.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-5')">bibtex</button>
+              <div id="expandable-text-5" class="expandable-text">
+                <p>@article{chong2021frequency, 
+                <br>&nbsp;&nbsp;title={Frequency modulation of body waves to improve performance of sidewinding robots}, 
+                <br>&nbsp;&nbsp;author={Chong, Baxi and Wang, Tianyu and Rieser, Jennifer M and Lin, Bo and Kaba, Abdul and Blekherman, Grigoriy and Choset, Howie and Goldman, Daniel I}, 
+                <br>&nbsp;&nbsp;journal={The International Journal of Robotics Research},
+                <br>&nbsp;&nbsp;volume={40},
+                <br>&nbsp;&nbsp;number={12-14},
+                <br>&nbsp;&nbsp;pages={1547--1562},
+                <br>&nbsp;&nbsp;year={2021},
+                <br>&nbsp;&nbsp;publisher={SAGE Publications Sage UK: London, England}
+                <br>}</p>
+              </div>
               <p></p>
               <a href="http://www.roboticsproceedings.org/rss16/p013.html" target="_blank">
                 <papertitle>Frequency modulation of body waves to improve performance of limbless robots</papertitle>
@@ -259,7 +410,15 @@
               <a href="https://youtu.be/u4r32OxXnCA" target="_blank">presentation</a> /
               <a href="data/chong2020frequency.pdf" target="_blank">pdf</a> /
               <a href="https://youtu.be/XYL87JaD97A" target="_blank">video</a> /
-              <a href="bibtex/chong2020frequency.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-4')">bibtex</button>
+              <div id="expandable-text-4" class="expandable-text">
+                <p>@inproceedings{chong2020frequency, 
+                <br>&nbsp;&nbsp;title={Frequency modulation of body waves to improve performance of limbless robots}, 
+                <br>&nbsp;&nbsp;author={Chong, Baxi and Wang, Tianyu and Rieser, Jennifer M. and Kaba, Abdul and Choset, Howie and Goldman, Daniel I.}, 
+                <br>&nbsp;&nbsp;booktitle={Robotics: Science and Systems},
+                <br>&nbsp;&nbsp;year={2020}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">This work proposes a method to stabilize limbless robot sidewinding gaits by modulations of the spatial frequency of the vertical wave.
               </p>
@@ -284,7 +443,16 @@
               <a href="https://arxiv.org/abs/2003.01774" target="_blank">arxiv</a> /
               <a href="data/wang2020directional.pdf" target="_blank">pdf</a> /
               <a href="https://youtu.be/4Fv5qU1Buxw" target="_blank">video</a> /
-              <a href="bibtex/wang2020directional.html" target="_blank">bibtex</a>
+              <button class="expand-button" onclick="toggleText('expandable-text-3')">bibtex</button>
+              <div id="expandable-text-3" class="expandable-text">
+                <p>@inproceedings{wang2020directional, 
+                <br>&nbsp;&nbsp;title={Directional compliance in obstacle-aided navigation for snake robots}, 
+                <br>&nbsp;&nbsp;author={Wang, Tianyu and Whitman, Julian and Travers, Matthew and Choset, Howie}, 
+                <br>&nbsp;&nbsp;booktitle={2020 American Control Conference (ACC)},
+                <br>&nbsp;&nbsp;year={2020}, 
+                <br>&nbsp;&nbsp;organization={IEEE}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">This work develops a biologically-inspired "directional compliant" controller, which modulates the effective stiffness of the robot body upon collisions, to enable snake robots to reliably traverse difficult 2D and 3D terrains.</p>
             </td>
@@ -308,8 +476,18 @@
               <a href="data/wang2018programmable.pdf" target="_blank">pdf</a> /
               <a href="https://youtu.be/XoyYGWjMKUA" target="_blank">video 1</a> /
               <a href="https://youtu.be/h9qG1-eZlEU" target="_blank">video 2</a> /
-              <a href="bibtex/wang2018programmable.html" target="_blank">bibtex</a>
-
+              <button class="expand-button" onclick="toggleText('expandable-text-2')">bibtex</button>
+              <div id="expandable-text-2" class="expandable-text">
+                <p>@article{wang2018programmable, 
+                <br>&nbsp;&nbsp;title={Programmable design of soft pneu-net actuators with oblique chambers can generate coupled bending and twisting motions}, 
+                <br>&nbsp;&nbsp;author={Wang, Tianyu and Ge, Lisen and Gu, Guoying}, 
+                <br>&nbsp;&nbsp;journal={Sensors and Actuators A: Physical}, 
+                <br>&nbsp;&nbsp;volume={271}, 
+                <br>&nbsp;&nbsp;pages={131--138}, 
+                <br>&nbsp;&nbsp;year={2018}, 
+                <br>&nbsp;&nbsp;publisher={Elsevier} 
+                <br>}</p>
+              </div>
               <p></p>
 
               <a href="https://www.jove.com/t/58277/fabrication-of-soft-pneumatic-network-actuators-with-oblique-chambers" target="_blank">
@@ -321,8 +499,17 @@
               <em>Journal of Visualized Experiments</em>, 2018
               <br>
               <a href="data/ge2018fabrication.pdf" target="_blank">pdf</a> /
-              <a href="bibtex/ge2018fabrication.html" target="_blank">bibtex</a>
-
+              <button class="expand-button" onclick="toggleText('expandable-text-1')">bibtex</button>
+              <div id="expandable-text-1" class="expandable-text">
+                <p>@article{ge2018fabrication,
+                <br>&nbsp;&nbsp;title={Fabrication of soft pneumatic network actuators with oblique chambers},
+                <br>&nbsp;&nbsp;author={Ge, Lisen and Wang, Tianyu and Zhang, Ningbin and Gu, Guoying},
+                <br>&nbsp;&nbsp;journal={JoVE (Journal of Visualized Experiments)},
+                <br>&nbsp;&nbsp;number={138},
+                <br>&nbsp;&nbsp;pages={e58277},
+                <br>&nbsp;&nbsp;year={2018}
+                <br>}</p>
+              </div>
               <p></p>
               <p style="text-align:justify">This work proposes a programmable design of enable pneu-net actuators to achieve 3D coupled bending and twisting complex motions.</p>
             </td>
@@ -351,24 +538,14 @@
   </table>
 
 <script>
-function click_directional() {
-  var x = document.getElementById("bib_directional");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-</script>
-<script>
-function click_programmable() {
-  var x = document.getElementById("bib_programmable");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
+    function toggleText(id) {
+      var text = document.getElementById(id);
+      if (text.style.display === "none" || text.style.display === "") {
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
 </script>
 
 </body>
