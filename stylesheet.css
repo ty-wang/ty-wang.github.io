@@ -63,6 +63,8 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* ---------- Base ---------- */
+
 a {
   color: #1772d0;
   text-decoration: none;
@@ -81,7 +83,11 @@ tr,
 p,
 a {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 16px
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
 }
 
 strong {
@@ -97,13 +103,127 @@ heading {
 papertitle {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 16px;
-  font-weight: 700
+  font-weight: 700;
 }
 
 name {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 36px;
 }
+
+/* ---------- Layout ---------- */
+
+.page {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: separate;
+  margin: 0 auto;
+}
+
+.section > tbody > tr > td {
+  padding: 20px;
+  vertical-align: middle;
+}
+
+.bio-text {
+  padding: 2.5%;
+  width: 63%;
+  vertical-align: middle;
+}
+
+.bio-photo {
+  padding: 2.5%;
+  width: 30%;
+  max-width: 40%;
+}
+
+.bio-photo img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.links {
+  text-align: center;
+}
+
+/* ---------- Publication entries ---------- */
+
+.thumb {
+  width: 20%;
+}
+
+.thumb img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.thumb img.center {
+  width: 50%;
+}
+
+.entry {
+  width: 80%;
+}
+
+.summary {
+  text-align: justify;
+}
+
+.award {
+  color: red;
+  font-weight: 700;
+}
+
+.footer-note {
+  text-align: right;
+  font-size: small;
+}
+
+.footer-note a {
+  font-size: small;
+}
+
+/* ---------- Expandable bibtex / old news ---------- */
+
+.expandable-text {
+  display: none;
+  background-color: #f2f2f2;
+  font-size: 14px;
+  overflow-x: auto;
+}
+
+.expandable-text.is-open {
+  display: block;
+}
+
+.expand-button {
+  background: none;
+  border: none;
+  color: #1772d0;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  display: inline-block;
+}
+
+.expand-button:hover {
+  color: #f09228;
+}
+
+/* ---------- Utilities ---------- */
 
 .one {
   width: 160px;
@@ -116,14 +236,10 @@ name {
   height: 160px;
   position: absolute;
   transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
 }
 
 .fade {
   transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
 }
 
 .center {
@@ -135,4 +251,63 @@ name {
 
 span.highlight {
   background-color: #ffffd0;
+}
+
+a.purple_button:link,
+a.purple_button:visited {
+  color: #a284e0;
+}
+
+a.purple_button:hover {
+  color: #f09228;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+
+  .section,
+  .section > tbody,
+  .section > tbody > tr,
+  .section > tbody > tr > td {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section > tbody > tr > td {
+    padding: 14px 18px;
+  }
+
+  .bio-text,
+  .bio-photo,
+  .thumb,
+  .entry {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .bio-photo {
+    padding: 0 18px 14px;
+  }
+
+  .bio-photo img,
+  .thumb img,
+  .thumb img.center {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  name {
+    font-size: 30px;
+  }
+
+  .links a {
+    display: inline-block;
+    padding: 4px 0;
+  }
 }
