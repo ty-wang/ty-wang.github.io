@@ -316,9 +316,10 @@ a.purple_button:hover {
 }
 
 
-/* ---------- News collapse toggle ---------- */
+/* ---------- Section collapse toggles ---------- */
 
-.news-toggle {
+.news-toggle,
+.highlights-toggle {
   background: none;
   border: none;
   padding: 0;
@@ -330,7 +331,8 @@ a.purple_button:hover {
   vertical-align: 4px;
 }
 
-.news-toggle:hover {
+.news-toggle:hover,
+.highlights-toggle:hover {
   color: #f09228;
 }
 

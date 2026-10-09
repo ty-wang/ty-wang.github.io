@@ -7,7 +7,7 @@
 
   <meta name="author" content="Tianyu Wang">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20261009b">
   <link rel="icon" type="image/png" href="images/gt-logo-black.png">
 </head>
 
@@ -58,10 +58,13 @@
         <tr>
           <td>
             <heading>Research highlights</heading>
-            <div id="reel" class="reel">
-              <noscript>
-                <p>Video highlights require JavaScript. Video links are available in each publication below.</p>
-              </noscript>
+            <button type="button" class="highlights-toggle" aria-expanded="true" aria-controls="highlights-body" onclick="toggleHighlights()">hide all</button>
+            <div id="highlights-body" class="collapsible">
+              <div id="reel" class="reel">
+                <noscript>
+                  <p>Video highlights require JavaScript. Video links are available in each publication below.</p>
+                </noscript>
+              </div>
             </div>
           </td>
         </tr>
@@ -1145,6 +1148,16 @@
     btn.textContent = collapsed ? 'show all' : 'hide all';
   }
 
+  function toggleHighlights() {
+    var body = document.getElementById('highlights-body');
+    var btn = document.querySelector('.highlights-toggle');
+    if (!body || !btn) return;
+    var collapsed = body.classList.toggle('is-collapsed');
+    btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    btn.textContent = collapsed ? 'show all' : 'hide all';
+    if (window.reelSetPaused) window.reelSetPaused(collapsed);
+  }
+
     var REEL = [
       {
         video:  "videos/wang2023mechanical.mp4",
@@ -1341,6 +1354,16 @@
         renderCaption();
         armFallback();
       }
+
+      window.reelSetPaused = function (paused) {
+        if (paused) {
+          clearTimer();
+          videos[index].pause();
+        } else {
+          play(videos[index]);
+          armFallback();
+        }
+      };
 
       go(0);
     })();
