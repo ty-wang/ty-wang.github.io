@@ -198,12 +198,15 @@ name {
 .expandable-text {
   display: none;
   background-color: #f2f2f2;
-  font-size: 14px;
   overflow-x: auto;
 }
 
 .expandable-text.is-open {
   display: block;
+}
+
+.expandable-text p {
+  font-size: 13px;
 }
 
 .expand-button {
@@ -333,4 +336,134 @@ a.purple_button:hover {
 
 .collapsible.is-collapsed {
   display: none;
+}
+
+
+/* ---------- Research highlight reel ---------- */
+
+.reel {
+  max-width: 720px;
+  margin: 18px auto 0;
+}
+
+.reel-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.reel-stage video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .35s ease-in-out;
+  pointer-events: none;
+}
+
+.reel-stage video.is-active {
+  opacity: 1;
+}
+
+/* previous / next arrows */
+
+.reel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .34);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .18s ease, opacity .18s ease;
+  opacity: .78;
+  z-index: 2;
+}
+
+.reel-nav:hover,
+.reel-nav:focus-visible {
+  background: rgba(0, 0, 0, .58);
+  opacity: 1;
+  outline: none;
+}
+
+.reel-nav svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+
+.reel-prev { left: 12px; }
+.reel-next { right: 12px; }
+
+.reel-caption {
+  margin-top: 12px;
+  min-height: 2.6em;
+  text-align: center;
+}
+
+.reel-venue {
+  color: #777;
+}
+
+.reel-dots {
+  margin-top: 6px;
+  text-align: center;
+}
+
+.reel-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin: 0 5px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.reel-dot:hover {
+  background: #f09228;
+}
+
+.reel-dot.is-active {
+  background: #1772d0;
+}
+
+/* jump-to-paper highlight */
+
+tr[id^="pub-"] {
+  scroll-margin-top: 24px;
+}
+
+@keyframes pubflash {
+  from { background-color: #fff3bf; }
+  to   { background-color: transparent; }
+}
+
+tr.is-flash > td {
+  animation: pubflash 1.8s ease-out;
+}
+
+@media (max-width: 760px) {
+  .reel { max-width: 100%; }
+  .reel-caption { min-height: 0; }
+  .reel-nav { width: 32px; height: 32px; }
+  .reel-prev { left: 8px; }
+  .reel-next { right: 8px; }
 }

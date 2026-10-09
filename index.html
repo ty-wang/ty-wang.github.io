@@ -52,6 +52,22 @@
       </tbody>
     </table>
 
+    <!-- ===================== Research highlights ===================== -->
+    <table class="section">
+      <tbody>
+        <tr>
+          <td>
+            <heading>Research highlights</heading>
+            <div id="reel" class="reel">
+              <noscript>
+                <p>Video highlights require JavaScript. Video links are available in each publication below.</p>
+              </noscript>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
     <!-- ===================== News ===================== -->
     <table class="section">
       <tbody>
@@ -189,7 +205,7 @@
           </td>
         </tr>
 
-        <tr>
+        <tr id="pub-dortilus2026morphing">
           <td class="thumb">
             <img src="images/dortilus2026morphing.png" alt="project image" loading="lazy">
           </td>
@@ -479,7 +495,7 @@
           </td>
         </tr>
 
-        <tr>
+        <tr id="pub-liu2024robust">
           <td class="thumb">
             <img src="images/liu2024robust.png" alt="project image" loading="lazy">
           </td>
@@ -544,7 +560,7 @@
           </td>
         </tr>
 
-        <tr bgcolor="#ffffd0">
+        <tr id="pub-wang2023mechanical" bgcolor="#ffffd0">
           <td class="thumb">
             <img src="images/wang2023mechanical.png" alt="project image" loading="lazy">
           </td>
@@ -623,7 +639,7 @@
           </td>
         </tr>
 
-        <tr bgcolor="#ffffd0">
+        <tr id="pub-chong2023multilegged" bgcolor="#ffffd0">
           <td class="thumb">
             <img src="images/chong2023multilegged.png" alt="project image" loading="lazy">
           </td>
@@ -1128,6 +1144,207 @@
     btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
     btn.textContent = collapsed ? 'show all' : 'hide all';
   }
+
+    var REEL = [
+      {
+        video:  "videos/wang2023mechanical.mp4",
+        poster: "images/web_poster.jpg",
+        paper:  "Mechanical intelligence simplifies control in terrestrial limbless locomotion",
+        venue:  "Science Robotics 2023",
+        anchor: "pub-wang2023mechanical"
+      },
+      {
+        video:  "videos/wang2026aquamilr.mp4",
+        paper:  "Three-dimensional hydro-cluttered locomotion by an undulatory robot",
+        venue:  "preprint",
+        url:    "https://arxiv.org/abs/2606.06829"
+      },
+      {
+        video:  "videos/dortilus2026morphing.mp4",
+        paper:  "Morphing MILR: Design and control of a cable-driven limbless robot with rolling joints",
+        venue:  "IROS 2026",
+        anchor: "pub-dortilus2026morphing"
+      },
+      {
+        video:  "videos/chong2023multilegged.mp4",
+        paper:  "Multilegged matter transport: A framework for locomotion on noisy landscapes",
+        venue:  "Science 2023",
+        anchor: "pub-chong2023multilegged"
+      },
+      {
+        video:  "videos/liu2024robust.mp4",
+        paper:  "Robust self-propulsion in sand using simply controlled vibrating cubes",
+        venue:  "Frontiers in Robotics and AI 2024",
+        anchor: "pub-liu2024robust"
+      }
+    ];
+
+    (function () {
+      var root = document.getElementById('reel');
+      if (!root || !REEL.length) return;
+
+      var reduceMotion = window.matchMedia
+        && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var index = 0;
+      var videos = [];
+      var dots = [];
+      var timer = null;
+
+      var stage = document.createElement('div');
+      stage.className = 'reel-stage';
+
+      var caption = document.createElement('div');
+      caption.className = 'reel-caption';
+
+      var dotWrap = document.createElement('div');
+      dotWrap.className = 'reel-dots';
+
+      REEL.forEach(function (item, i) {
+        var v = document.createElement('video');
+        v.src = item.video;
+        if (item.poster) v.poster = item.poster;
+        v.muted = true;
+        v.defaultMuted = true;
+        v.playsInline = true;
+        v.setAttribute('playsinline', '');
+        v.setAttribute('muted', '');
+        v.preload = (i === 0) ? 'metadata' : 'none';
+        if (reduceMotion) v.controls = true;
+        v.addEventListener('ended', function () { go(index + 1); });
+        v.addEventListener('error', function () {
+          if (i === index) go(index + 1);
+        });
+        stage.appendChild(v);
+        videos.push(v);
+
+        var d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'reel-dot';
+        d.title = item.paper;
+        d.setAttribute('aria-label', item.paper);
+        d.addEventListener('click', function () { go(i); });
+        dotWrap.appendChild(d);
+        dots.push(d);
+      });
+
+      if (REEL.length > 1) {
+        stage.appendChild(navButton('prev', 'Previous video', 'M15 4 L7 10 L15 16'));
+        stage.appendChild(navButton('next', 'Next video', 'M5 4 L13 10 L5 16'));
+      }
+
+      function navButton(dir, label, path) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'reel-nav reel-' + dir;
+        b.setAttribute('aria-label', label);
+        b.title = label;
+        b.innerHTML = '<svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">'
+          + '<path d="' + path + '" fill="none" stroke="currentColor" '
+          + 'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        b.addEventListener('click', function () {
+          go(index + (dir === 'next' ? 1 : -1));
+        });
+        return b;
+      }
+
+      caption.addEventListener('click', function (e) {
+        var link = e.target.closest ? e.target.closest('a[data-anchor]') : null;
+        if (!link) return;
+        e.preventDefault();
+        jumpTo(link.getAttribute('data-anchor'));
+      });
+
+      root.appendChild(stage);
+      root.appendChild(caption);
+      if (REEL.length > 1) root.appendChild(dotWrap);
+
+      function clearTimer() {
+        if (timer) { clearTimeout(timer); timer = null; }
+      }
+
+      function armFallback() {
+        clearTimer();
+        if (reduceMotion || REEL.length < 2) return;
+        timer = setTimeout(function () { go(index + 1); }, 25000);
+      }
+
+      function play(v) {
+        if (reduceMotion) return;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+
+      function renderCaption() {
+        var item = REEL[index];
+        caption.innerHTML = '';
+
+        var line = document.createElement('div');
+        var title;
+
+        if (item.url) {
+          title = document.createElement('a');
+          title.href = item.url;
+          title.target = '_blank';
+          title.rel = 'noopener';
+        } else if (item.anchor) {
+          title = document.createElement('a');
+          title.href = '#' + item.anchor;
+          title.setAttribute('data-anchor', item.anchor);
+        } else {
+          title = document.createElement('span');
+        }
+        title.textContent = item.paper;
+        line.appendChild(title);
+
+        if (item.venue) {
+          var venue = document.createElement('span');
+          venue.className = 'reel-venue';
+          venue.textContent = ', ' + item.venue;
+          line.appendChild(venue);
+        }
+        caption.appendChild(line);
+      }
+
+      function jumpTo(anchor) {
+        var row = document.getElementById(anchor);
+        if (!row) return;
+        row.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        row.classList.remove('is-flash');
+        void row.offsetWidth;
+        row.classList.add('is-flash');
+      }
+
+      function go(i) {
+        clearTimer();
+        index = ((i % REEL.length) + REEL.length) % REEL.length;
+
+        videos.forEach(function (v, n) {
+          if (n === index) {
+            v.classList.add('is-active');
+            if (v.preload === 'none') v.preload = 'metadata';
+            try { v.currentTime = 0; } catch (err) {}
+            play(v);
+          } else {
+            v.classList.remove('is-active');
+            v.pause();
+          }
+        });
+
+        var next = videos[(index + 1) % videos.length];
+        if (next && next.preload === 'none') next.preload = 'metadata';
+
+        dots.forEach(function (d, n) {
+          d.classList.toggle('is-active', n === index);
+        });
+
+        renderCaption();
+        armFallback();
+      }
+
+      go(0);
+    })();
+    
   </script>
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
