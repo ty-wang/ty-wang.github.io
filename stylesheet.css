@@ -311,3 +311,26 @@ a.purple_button:hover {
     padding: 4px 0;
   }
 }
+
+
+/* ---------- News collapse toggle ---------- */
+
+.news-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 12px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #999;
+  cursor: pointer;
+  vertical-align: 4px;
+}
+
+.news-toggle:hover {
+  color: #f09228;
+}
+
+.collapsible.is-collapsed {
+  display: none;
+}
