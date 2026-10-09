@@ -1222,9 +1222,19 @@
         v.playsInline = true;
         v.setAttribute('playsinline', '');
         v.setAttribute('muted', '');
-        v.preload = (i === 0) ? 'metadata' : 'none';
+        v.preload = (i === 0) ? 'auto' : 'none';
+        if (i === 0 && !reduceMotion) {
+          v.autoplay = true;
+          v.setAttribute('autoplay', '');
+        }
         if (reduceMotion) v.controls = true;
         v.addEventListener('ended', function () { go(index + 1); });
+        v.addEventListener('canplay', function () {
+          if (i === index && v.paused) play(v);
+        });
+        v.addEventListener('playing', function () {
+          if (i === index) armFallback();
+        });
         v.addEventListener('error', function () {
           if (i === index) go(index + 1);
         });
@@ -1285,7 +1295,21 @@
       function play(v) {
         if (reduceMotion) return;
         var p = v.play();
-        if (p && p.catch) p.catch(function () {});
+        if (p && p.catch) {
+          p.catch(function () {
+            // Autoplay refused (common on mobile until the user interacts).
+            // Retry once the clip has buffered, and on the next page touch.
+            if (v.readyState < 3) {
+              v.addEventListener('canplay', function once() {
+                v.removeEventListener('canplay', once);
+                if (videos[index] === v && v.paused) {
+                  var q = v.play();
+                  if (q && q.catch) q.catch(function () {});
+                }
+              });
+            }
+          });
+        }
       }
 
       function renderCaption() {
@@ -1352,7 +1376,6 @@
         });
 
         renderCaption();
-        armFallback();
       }
 
       window.reelSetPaused = function (paused) {
@@ -1361,9 +1384,21 @@
           videos[index].pause();
         } else {
           play(videos[index]);
-          armFallback();
         }
       };
+
+      // Mobile browsers often refuse autoplay until the page has been touched.
+      // The first interaction anywhere on the page starts the current clip.
+      var unlocked = false;
+      function unlockPlayback() {
+        if (unlocked) return;
+        unlocked = true;
+        var v = videos[index];
+        if (v && v.paused) play(v);
+      }
+      ['pointerdown', 'touchstart', 'keydown'].forEach(function (ev) {
+        document.addEventListener(ev, unlockPlayback, { once: true, passive: true });
+      });
 
       go(0);
     })();
