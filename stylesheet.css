@@ -265,6 +265,16 @@ a.purple_button:hover {
   color: #f09228;
 }
 
+a.award-link:link,
+a.award-link:visited {
+  color: #C72227;
+}
+
+a.award-link:focus,
+a.award-link:hover {
+  color: #f09228;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 760px) {
@@ -373,6 +383,60 @@ a.purple_button:hover {
   opacity: 1;
 }
 
+/* tap-to-play overlay, only shown when autoplay is refused */
+
+.reel-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(0, 0, 0, .28);
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.reel-play.is-visible {
+  display: flex;
+}
+
+.reel-play-icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reel-play-icon svg {
+  width: 30px;
+  height: 30px;
+  margin-left: 3px;
+  display: block;
+}
+
+.reel-play-text {
+  font-size: 15px;
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+}
+
+.reel-play:hover .reel-play-icon,
+.reel-play:focus-visible .reel-play-icon {
+  background: rgba(0, 0, 0, .75);
+}
+
 /* previous / next arrows */
 
 .reel-nav {
@@ -468,4 +532,6 @@ tr.is-flash > td {
   .reel-nav { width: 32px; height: 32px; }
   .reel-prev { left: 8px; }
   .reel-next { right: 8px; }
+  .reel-play-icon { width: 54px; height: 54px; }
+  .reel-play-icon svg { width: 26px; height: 26px; }
 }

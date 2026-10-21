@@ -7,7 +7,7 @@
 
   <meta name="author" content="Tianyu Wang">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20261009b">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20261021">
   <link rel="icon" type="image/png" href="images/gt-logo-black.png">
 </head>
 
@@ -32,7 +32,15 @@
             </p>
 
             <p>
-              My work has been recognized by several honors, including selection as an <a href="https://sites.google.com/view/rsspioneers2026/participants" target="_blank" rel="noopener">RSS Pioneer</a>, <a href="https://risingstarsme.stanford.edu/" target="_blank" rel="noopener">Rising Star in Mechanical Engineering</a>, <a href="https://cps-vo.org/group/CPSRisingStarsWorkshop25" target="_blank" rel="noopener">NSF CPS Rising Star</a>, <a href="https://engineering.purdue.edu/Trailblazers" target="_blank" rel="noopener">Trailblazers in Engineering Fellow</a>, an RSS Best Paper Finalist distinction, and multiple research fellowships and travel awards. I have published papers in journals and conferences including <em>Science</em>, <em>Science Robotics</em>, <em>PNAS</em>, <em>IJRR</em>, <em>RSS</em>, and <em>ICRA</em>. I serve on editoral board and as peer reviewer for academic journals and conferences, have co-organized workshops at major robotics conferences, and my work has been covered by various media outlets.
+              My work has been recognized by several honors, including selection as an <a class="award-link" href="https://sites.google.com/view/rsspioneers2026/participants" target="_blank" rel="noopener">RSS Pioneer</a>, <a class="award-link" href="https://risingstarsme.stanford.edu/" target="_blank" rel="noopener">Rising Star in Mechanical Engineering</a>, <a class="award-link" href="https://cps-vo.org/group/CPSRisingStarsWorkshop25" target="_blank" rel="noopener">NSF CPS Rising Star</a>, <a class="award-link" href="https://engineering.purdue.edu/Trailblazers" target="_blank" rel="noopener">Trailblazers in Engineering Fellow</a>, an RSS Best Paper Finalist distinction, and multiple research fellowships and travel awards. I have published papers in journals and conferences including <em>Science</em>, <em>Science Robotics</em>, <em>PNAS</em>, <em>IJRR</em>, <em>RSS</em>, and <em>ICRA</em>. I serve on editoral board and as peer reviewer for academic journals and conferences, have co-organized workshops at major robotics conferences, and my work has been covered by various media outlets.
+            </p>
+
+            <p>
+              If you are interested in my research, please feel free to reach out by email. 
+            </p>
+
+            <p>
+              I am on the 2026-27 academic job market, seeking tenure-track assistant professor positions starting Fall 2027. I would be grateful if you could forward any openings that may be a good fit.
             </p>
 
             <p class="links">
@@ -1256,6 +1264,31 @@
         stage.appendChild(navButton('next', 'Next video', 'M5 4 L13 10 L5 16'));
       }
 
+      // Shown only when the browser refuses to autoplay (common on phones).
+      var playOverlay = document.createElement('button');
+      playOverlay.type = 'button';
+      playOverlay.className = 'reel-play';
+      playOverlay.setAttribute('aria-label', 'Play video');
+      playOverlay.innerHTML =
+        '<span class="reel-play-icon">'
+        + '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+        + '<path d="M8 5 L19 12 L8 19 Z" fill="currentColor"/></svg>'
+        + '</span><span class="reel-play-text">Tap to play</span>';
+      playOverlay.addEventListener('click', function () {
+        hidePlayOverlay();
+        play(videos[index]);
+      });
+      stage.appendChild(playOverlay);
+
+      function showPlayOverlay() {
+        if (reduceMotion) return;
+        playOverlay.classList.add('is-visible');
+      }
+
+      function hidePlayOverlay() {
+        playOverlay.classList.remove('is-visible');
+      }
+
       function navButton(dir, label, path) {
         var b = document.createElement('button');
         b.type = 'button';
@@ -1295,18 +1328,20 @@
       function play(v) {
         if (reduceMotion) return;
         var p = v.play();
-        if (p && p.catch) {
-          p.catch(function () {
-            // Autoplay refused (common on mobile until the user interacts).
-            // Retry once the clip has buffered, and on the next page touch.
+        if (p && p.then) {
+          p.then(hidePlayOverlay).catch(function () {
+            // Autoplay refused (common on phones until the user interacts),
+            // or the clip has no data yet. Retry on canplay; if it is a refusal,
+            // show the overlay so the visitor knows there is a video here.
             if (v.readyState < 3) {
               v.addEventListener('canplay', function once() {
                 v.removeEventListener('canplay', once);
-                if (videos[index] === v && v.paused) {
-                  var q = v.play();
-                  if (q && q.catch) q.catch(function () {});
-                }
+                if (videos[index] !== v || !v.paused) return;
+                var q = v.play();
+                if (q && q.then) q.then(hidePlayOverlay).catch(showPlayOverlay);
               });
+            } else {
+              showPlayOverlay();
             }
           });
         }
@@ -1354,6 +1389,7 @@
 
       function go(i) {
         clearTimer();
+        hidePlayOverlay();
         index = ((i % REEL.length) + REEL.length) % REEL.length;
 
         videos.forEach(function (v, n) {
@@ -1394,7 +1430,7 @@
         if (unlocked) return;
         unlocked = true;
         var v = videos[index];
-        if (v && v.paused) play(v);
+        if (v && v.paused) { hidePlayOverlay(); play(v); }
       }
       ['pointerdown', 'touchstart', 'keydown'].forEach(function (ev) {
         document.addEventListener(ev, unlockPlayback, { once: true, passive: true });
